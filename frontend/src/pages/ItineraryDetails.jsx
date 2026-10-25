@@ -5,7 +5,6 @@ import API from '../api'; // Use the shared axios instance — not raw axios
 const ItineraryDetails = () => {
     const { cityId } = useParams();
     const [itinerary, setItinerary] = useState([]);
-    const [cityName, setCityName] = useState('');
     const [activeDay, setActiveDay] = useState(0); // Open first day by default
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

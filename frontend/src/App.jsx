@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -14,14 +14,10 @@ import ItineraryDetails from './pages/ItineraryDetails';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
+  const [user, setUser] = useState(() => {
     const loggedInUser = localStorage.getItem('user');
-    if (loggedInUser) {
-      setUser(JSON.parse(loggedInUser));
-    }
-  }, []);
+    return loggedInUser ? JSON.parse(loggedInUser) : null;
+  });
 
   const handleLogin = (userData, token) => {
     localStorage.setItem('user', JSON.stringify(userData));
