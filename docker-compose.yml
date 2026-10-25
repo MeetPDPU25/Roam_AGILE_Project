@@ -1,0 +1,71 @@
+services:
+  # ─────────────── MongoDB ───────────────
+  mongo:
+    image: mongo:7.0
+    container_name: roamrajasthan-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - roamrajasthan-net
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  # ─────────────── Backend ───────────────
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: roamrajasthan-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      MONGO_URI: mongodb://mongo:27017/roam_rajasthan_db
+      JWT_SECRET: ${JWT_SECRET:-supersecretkeymernmigration_rr}
+      NODE_ENV: production
+    volumes:
+      - uploads_data:/app/../uploads
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - roamrajasthan-net
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # ─────────────── Frontend ───────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: roamrajasthan-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - roamrajasthan-net
+
+volumes:
+  mongo_data:
+    driver: local
+  uploads_data:
+    driver: local
+
+networks:
+  roamrajasthan-net:
+    driver: bridge
