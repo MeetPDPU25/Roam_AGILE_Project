@@ -44,7 +44,7 @@ const CitiesList = () => {
             {cities.map((city) => (
               <Link 
                 to={`/cities/${city.city_id}`} 
-                className="group flex flex-col rounded-3xl bg-white shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-gold-500/10 hover:border-gold-200 transform hover:-translate-y-1 transition-all duration-500 overflow-hidden" 
+                className="group flex flex-col rounded-2xl bg-white shadow-md border border-gray-100 hover:shadow-2xl hover:shadow-brand-600/10 hover:border-brand-200 transform hover:-translate-y-2 transition-all duration-400 overflow-hidden"
                 key={city.city_id}
               >
                 <div className="relative h-64 overflow-hidden">
@@ -63,9 +63,9 @@ const CitiesList = () => {
                   <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
                     {city.description}
                   </p>
-                  <div className="mt-auto flex justify-between items-center text-sm font-semibold text-brand-600 group-hover:text-gold-600 transition-colors">
+                  <div className="mt-auto flex justify-between items-center text-sm font-semibold text-brand-600 group-hover:text-brand-500 transition-colors">
                     <span>View City Guide</span>
-                    <span className="w-8 h-8 rounded-full bg-brand-50 group-hover:bg-gold-50 flex items-center justify-center transition-colors">
+                    <span className="w-8 h-8 rounded-full bg-brand-50 group-hover:bg-brand-100 flex items-center justify-center transition-colors">
                       <i className="fas fa-arrow-right"></i>
                     </span>
                   </div>

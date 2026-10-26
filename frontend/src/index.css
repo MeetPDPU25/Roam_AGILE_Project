@@ -5,25 +5,25 @@
    Tailwind v4 Theme — custom colors & fonts
 ───────────────────────────────────────────── */
 @theme {
-  /* Brand palette (earthy greens / desert) */
-  --color-brand-50:  #fdf8f6;
-  --color-brand-100: #f2e8e5;
-  --color-brand-200: #eaddd7;
-  --color-brand-300: #e0cec7;
-  --color-brand-400: #d2bab0;
-  --color-brand-500: #a3b18a;
-  --color-brand-600: #588157;
-  --color-brand-700: #3a5a40;
-  --color-brand-800: #344e41;
-  --color-brand-900: #2c3a32;
+  /* Brand palette - Rajasthani Saffron / Terracotta */
+  --color-brand-50:  #fff8f5;
+  --color-brand-100: #ffe8de;
+  --color-brand-200: #ffd0bc;
+  --color-brand-300: #ffb294;
+  --color-brand-400: #ff8c62;
+  --color-brand-500: #e8622c;
+  --color-brand-600: #c05621;
+  --color-brand-700: #964218;
+  --color-brand-800: #7a3413;
+  --color-brand-900: #5c270e;
 
-  /* Gold / sunset palette */
-  --color-gold-100: #fef3e2;
-  --color-gold-200: #fde4b5;
-  --color-gold-300: #fbcd84;
-  --color-gold-400: #e9c46a;
-  --color-gold-500: #f4a261;
-  --color-gold-600: #e76f51;
+  /* Gold / Royal Amber palette */
+  --color-gold-100: #fff8e0;
+  --color-gold-200: #ffecad;
+  --color-gold-300: #ffd97a;
+  --color-gold-400: #f5c518;
+  --color-gold-500: #e6a817;
+  --color-gold-600: #c47f00;
 
   /* Typography */
   --font-sans:    'Inter', sans-serif;
