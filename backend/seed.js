@@ -1,4 +1,4 @@
-// backend/seed.js — Rich data for 6 Rajasthan cities
+// backend/seed.js — Rich data for 6 Rajasthan cities with distinct original images
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -88,7 +88,7 @@ const seedDatabase = async () => {
         const kId  = getCityId('Kota');
 
         // ══════════════════════════════════════════
-        // 2. PLACES
+        // 2. PLACES — Each with its own unique original photo
         // ══════════════════════════════════════════
         const placesData = [
             // JAIPUR
@@ -104,7 +104,7 @@ const seedDatabase = async () => {
               description:'Perched on the Aravalli ridge, the Tiger Fort offers the most breathtaking panoramic views of Jaipur city, especially magical at sunset.',
               timing:'10:00 AM – 5:30 PM', entry_fee:'₹50 (Indians) / ₹200 (Foreigners)',
               map_link:'https://maps.app.goo.gl/nahargarh', image_url:'images/jaipur/nahargarhFort.jpg' },
-            { place_id:'P04', city_id:jId, name:'City Palace', type:'Palace',
+            { place_id:'P04', city_id:jId, name:'City Palace Jaipur', type:'Palace',
               description:'A royal complex in the heart of Jaipur showcasing a blend of Rajput, Mughal, and European architecture. Houses museums with royal artefacts, costumes, and weapons.',
               timing:'9:30 AM – 5:00 PM', entry_fee:'₹200 (Indians) / ₹700 (Foreigners)',
               map_link:'https://maps.app.goo.gl/citypalacejaipur', image_url:'images/jaipur/CityPalace.jpg' },
@@ -121,70 +121,70 @@ const seedDatabase = async () => {
             { place_id:'P07', city_id:uId, name:'City Palace Udaipur', type:'Palace',
               description:'The largest palace complex in Rajasthan, standing tall on the east bank of Lake Pichola. A fusion of Rajput and Mughal styles with gorgeous courtyards, balconies, and towers.',
               timing:'9:30 AM – 5:30 PM', entry_fee:'₹300 (Adults) / ₹100 (Children)',
-              map_link:'https://maps.app.goo.gl/citypalaceudaipur', image_url:'images/udaipur/udaipur-cover.avif' },
+              map_link:'https://maps.app.goo.gl/citypalaceudaipur', image_url:'images/udaipur/city-palace.jpg' },
             { place_id:'P08', city_id:uId, name:'Lake Pichola', type:'Lake',
-              description:'An artificial freshwater lake created in 1362 AD. A boat ride here reveals the Lake Palace, Jag Mandir island, and the magnificent backdrop of the Aravalli hills — a romantic must-do.',
+              description:'An artificial freshwater lake created in 1362 AD. A boat ride here reveals the Lake Palace, Jag Mandir island, and the magnificent backdrop of the Aravalli hills.',
               timing:'8:00 AM – 6:00 PM (Boat rides)', entry_fee:'₹400 (Boat ride)',
-              map_link:'https://maps.app.goo.gl/lakepichola', image_url:'images/udaipur/udaipur-cover.avif' },
+              map_link:'https://maps.app.goo.gl/lakepichola', image_url:'images/udaipur/lake-pichola.jpg' },
             { place_id:'P09', city_id:uId, name:'Saheliyon ki Bari', type:'Garden',
-              description:'The Garden of Maids of Honour — an ornate garden built for the royal ladies with lotus pools, marble elephants, fountains, and lush greenery. A serene oasis in the heart of Udaipur.',
+              description:'The Garden of Maids of Honour — an ornate garden built for royal ladies with lotus pools, marble elephants, fountains, and lush greenery.',
               timing:'9:00 AM – 7:00 PM', entry_fee:'₹10 (Indians) / ₹50 (Foreigners)',
-              map_link:'https://maps.app.goo.gl/saheliyon', image_url:'images/udaipur/udaipur-cover.avif' },
+              map_link:'https://maps.app.goo.gl/saheliyon', image_url:'images/udaipur/saheliyon.jpg' },
 
             // JODHPUR
             { place_id:'P10', city_id:joId, name:'Mehrangarh Fort', type:'Fort',
-              description:'One of India\'s largest forts, perched 410 feet above Jodhpur city. Its massive walls house ornate palaces with exquisite stone carving, a world-class museum, and sweeping views of the Blue City below.',
+              description:'One of India\'s largest forts, perched 410 feet above Jodhpur city. Its massive walls house ornate palaces with exquisite stone carving, a museum, and sweeping views of the Blue City.',
               timing:'9:00 AM – 5:00 PM', entry_fee:'₹100 (Indians) / ₹600 (Foreigners)',
-              map_link:'https://maps.app.goo.gl/mehrangarh', image_url:'images/jodhpur/jodhpur-cover.jpg' },
+              map_link:'https://maps.app.goo.gl/mehrangarh', image_url:'images/jodhpur/mehrangarh.jpg' },
             { place_id:'P11', city_id:joId, name:'Jaswant Thada', type:'Monument',
-              description:'A serene white marble cenotaph built in 1899 in memory of Maharaja Jaswant Singh II. Known as the Taj Mahal of Marwar, it reflects in a calm lake and is beautifully lit at night.',
+              description:'A serene white marble cenotaph built in 1899 in memory of Maharaja Jaswant Singh II. Known as the Taj Mahal of Marwar, it reflects in a calm lake.',
               timing:'9:00 AM – 5:00 PM', entry_fee:'₹30 (Indians) / ₹50 (Foreigners)',
-              map_link:'https://maps.app.goo.gl/jaswantthada', image_url:'images/jodhpur/jodhpur-cover.jpg' },
+              map_link:'https://maps.app.goo.gl/jaswantthada', image_url:'images/jodhpur/jaswant-thada.jpg' },
             { place_id:'P12', city_id:joId, name:'Umaid Bhawan Palace', type:'Palace',
-              description:'One of the world\'s largest private residences, built between 1928–1943. Part museum, part heritage hotel — its Art Deco interiors and golden sandstone exterior make it a Jodhpur icon.',
+              description:'One of the world\'s largest private residences, built between 1928–1943. Part museum, part heritage hotel with iconic golden sandstone Art Deco architecture.',
               timing:'9:00 AM – 5:00 PM (Museum)', entry_fee:'₹50 (Museum)',
-              map_link:'https://maps.app.goo.gl/umaidbhawan', image_url:'images/jodhpur/jodhpur-cover.jpg' },
+              map_link:'https://maps.app.goo.gl/umaidbhawan', image_url:'images/jodhpur/umaid-bhawan.jpg' },
 
             // JAISALMER
-            { place_id:'P13', city_id:jaId, name:'Jaisalmer Fort', type:'Fort',
-              description:'The Golden Fort — a UNESCO World Heritage Site and one of the world\'s largest fully preserved fortified cities. Still inhabited by about 3,000 people, with shops, temples, and havelis inside its walls.',
+            { place_id:'P13', city_id:jaId, name:'Jaisalmer Fort (Sonar Qila)', type:'Fort',
+              description:'The Golden Fort — a UNESCO World Heritage Site and one of the world\'s largest fully preserved fortified cities. Still inhabited by 3,000 residents.',
               timing:'Open 24 hrs (museum 9AM–6PM)', entry_fee:'Free (museum ₹50)',
-              map_link:'https://maps.app.goo.gl/jaisalmerfort', image_url:'images/jaiselmer/jaiselmer-cover.jpg' },
+              map_link:'https://maps.app.goo.gl/jaisalmerfort', image_url:'images/jaiselmer/jaisalmer-fort.jpg' },
             { place_id:'P14', city_id:jaId, name:'Sam Sand Dunes', type:'Desert',
-              description:'The most famous dunes of the Thar Desert, located 42 km from Jaisalmer. Experience camel safaris, folk music evenings, traditional Rajasthani dance, and overnight desert camping under the Milky Way.',
+              description:'The most famous dunes of the Thar Desert, 42 km from Jaisalmer. Experience sunset camel safaris, folk dance, and overnight desert camping.',
               timing:'Sunrise to Sunset', entry_fee:'₹100–₹500 (camel ride)',
-              map_link:'https://maps.app.goo.gl/samsanddunes', image_url:'images/jaiselmer/jaiselmer-cover.jpg' },
+              map_link:'https://maps.app.goo.gl/samsanddunes', image_url:'images/jaiselmer/sand-dunes.jpg' },
             { place_id:'P15', city_id:jaId, name:'Patwon ki Haveli', type:'Haveli',
-              description:'The grandest of Jaisalmer\'s havelis, a cluster of five mansions built by Guman Chand Patwa between 1800–1860. Its intricate jali screens, golden stone carvings, and frescoes are breathtaking.',
+              description:'The grandest of Jaisalmer\'s havelis, a cluster of five mansions built between 1800–1860 with breathtaking jali screens and golden stone carvings.',
               timing:'9:00 AM – 6:00 PM', entry_fee:'₹50 (Indians) / ₹200 (Foreigners)',
-              map_link:'https://maps.app.goo.gl/patwonkihaveli', image_url:'images/jaiselmer/jaiselmer-cover.jpg' },
+              map_link:'https://maps.app.goo.gl/patwonkihaveli', image_url:'images/jaiselmer/patwon-haveli.jpg' },
 
             // BIKANER
             { place_id:'P16', city_id:bId, name:'Junagarh Fort', type:'Fort',
-              description:'An impregnable fort built in 1593, unique because it was never conquered. Its 37 palaces, temples, and pavilions showcase Rajput, Gujarati, and Mughal architectural influences with remarkably preserved interiors.',
+              description:'An impregnable fort built in 1593, unique because it was never conquered. Its 37 palaces, temples, and pavilions showcase Rajput and Mughal artistry.',
               timing:'10:00 AM – 4:30 PM', entry_fee:'₹50 (Indians) / ₹300 (Foreigners)',
-              map_link:'https://maps.app.goo.gl/junagarh', image_url:'images/bikaner/bikaner-cover.jpg' },
+              map_link:'https://maps.app.goo.gl/junagarh', image_url:'images/bikaner/junagarh-fort.jpg' },
             { place_id:'P17', city_id:bId, name:'Karni Mata Temple', type:'Temple',
-              description:'The famous Rat Temple of Deshnok, 30 km from Bikaner. Home to thousands of holy rats (called kabbas), this 15th-century temple is one of India\'s most unique spiritual sites.',
+              description:'The famous Rat Temple of Deshnok, 30 km from Bikaner. Home to thousands of holy revered rats, this 15th-century temple is an unforgettable spiritual experience.',
               timing:'4:00 AM – 10:00 PM', entry_fee:'Free',
-              map_link:'https://maps.app.goo.gl/karnimata', image_url:'images/bikaner/bikaner-cover.jpg' },
+              map_link:'https://maps.app.goo.gl/karnimata', image_url:'images/bikaner/karni-mata.jpg' },
 
             // KOTA
             { place_id:'P18', city_id:kId, name:'Kota Barrage', type:'Monument',
-              description:'An engineering marvel on the Chambal River, the Kota Barrage controls irrigation and water supply for Rajasthan and Madhya Pradesh. The river view at sunset is spectacular with abundant birdlife.',
+              description:'An engineering marvel on the Chambal River controlling irrigation for Rajasthan and MP. The riverside sunset view is breathtaking with abundant birdlife.',
               timing:'6:00 AM – 8:00 PM', entry_fee:'Free',
-              map_link:'https://maps.app.goo.gl/kotabarrage', image_url:'images/kota/kota-border.jpg' },
+              map_link:'https://maps.app.goo.gl/kotabarrage', image_url:'images/kota/kota-barrage.jpg' },
             { place_id:'P19', city_id:kId, name:'Jagmandir Palace', type:'Palace',
-              description:'A stunning 17th-century palace built on a small island in Kishore Sagar lake. The crimson and white structure mirrored in the lake creates one of Rajasthan\'s most picturesque views.',
+              description:'A stunning 17th-century palace built on an island in Kishore Sagar lake. Its crimson and white facade reflected in the lake creates one of Kota\'s most picturesque vistas.',
               timing:'8:00 AM – 6:00 PM', entry_fee:'₹10',
-              map_link:'https://maps.app.goo.gl/jagmandir', image_url:'images/kota/kota-cover.jpg' },
+              map_link:'https://maps.app.goo.gl/jagmandir', image_url:'images/kota/jagmandir.jpg' },
         ];
 
         const createdPlaces = await Place.insertMany(placesData);
-        console.log(`📍 Inserted ${createdPlaces.length} places.`);
+        console.log(`📍 Inserted ${createdPlaces.length} places with original images.`);
 
         // ══════════════════════════════════════════
-        // 3. FOOD
+        // 3. FOOD — Each with original photos
         // ══════════════════════════════════════════
         const foodData = [
             // JAIPUR
@@ -195,215 +195,187 @@ const seedDatabase = async () => {
               description:'A legendary 1954 sweet shop in Johari Bazaar, famous for its Raj Bhog thali, Malpua, and the iconic Rajasthani Ghewar served with rabri.',
               map_link:'https://maps.app.goo.gl/lmbjaipur', image_url:'images/jaipur/LMB.jpg' },
             { food_id:'F03', city_id:jId, name:'Masala Chowk', specialty:'Street Food Festival',
-              description:'A curated food court at Ram Niwas Garden showcasing 25+ stalls of authentic Jaipur street food — from Pyaaz Kachori to Kulfi — in a clean, open-air setting.',
+              description:'A curated food court at Ram Niwas Garden showcasing 25+ stalls of authentic Jaipur street food — from Pyaaz Kachori to Kulfi.',
               map_link:'https://maps.app.goo.gl/masalachowk', image_url:'images/jaipur/masalaChowk.jpg' },
             { food_id:'F04', city_id:jId, name:'Gulab Ji Chai', specialty:'Kulhad Chai & Makhan Bada',
-              description:'Jaipur\'s most beloved tea stall serving aromatic chai in traditional clay cups. A morning ritual for locals since 1956, paired with Makhan Bada and crispy Namak Pare.',
+              description:'Jaipur\'s most beloved tea stall serving aromatic chai in traditional clay cups. A morning ritual for locals since 1956.',
               map_link:'https://maps.app.goo.gl/gulabji', image_url:'images/jaipur/GulabJiChai.jpg' },
 
             // UDAIPUR
             { food_id:'F05', city_id:uId, name:'Natraj Dining Hall', specialty:'Rajasthani Thali',
-              description:'A heritage dining institution in Udaipur serving unlimited traditional Rajasthani thali with Dal Baati, Gatte ki Sabzi, Ker Sangri, and seasonal desserts since 1957.',
-              map_link:'https://maps.app.goo.gl/natrajudaipur', image_url:'images/udaipur/udaipur-cover.avif' },
+              description:'A heritage dining institution in Udaipur serving unlimited traditional Rajasthani thali with Dal Baati, Gatte ki Sabzi, and seasonal sweets.',
+              map_link:'https://maps.app.goo.gl/natrajudaipur', image_url:'images/udaipur/thali.jpg' },
             { food_id:'F06', city_id:uId, name:'Millets of Mewar', specialty:'Healthy Rajasthani Cuisine',
-              description:'A unique restaurant celebrating traditional millet-based cuisine of Rajasthan — serving Bajra Rotla, Jowar dishes, and Ragi desserts alongside breathtaking lake views.',
-              map_link:'https://maps.app.goo.gl/milletsudaipur', image_url:'images/udaipur/udaipur-cover.avif' },
+              description:'A unique restaurant celebrating traditional millet-based cuisine of Rajasthan — serving Bajra Rotla, Jowar dishes, and lake views.',
+              map_link:'https://maps.app.goo.gl/milletsudaipur', image_url:'images/udaipur/thali.jpg' },
 
             // JODHPUR
             { food_id:'F07', city_id:joId, name:'Shri Mishrilal Hotel', specialty:'Makhania Lassi',
-              description:'Jodhpur\'s most famous landmark for the legendary thick, saffron-flavoured Makhania Lassi — a creamy yoghurt drink topped with clotted cream, a must-try for every visitor since 1925.',
-              map_link:'https://maps.app.goo.gl/mishrilal', image_url:'images/jodhpur/jodhpur-cover.jpg' },
+              description:'Jodhpur\'s most famous landmark for the legendary thick, saffron-flavoured Makhania Lassi — a creamy yoghurt drink topped with clotted cream.',
+              map_link:'https://maps.app.goo.gl/mishrilal', image_url:'images/jodhpur/lassi.jpg' },
             { food_id:'F08', city_id:joId, name:'Gypsy Restaurant', specialty:'Laal Maas',
-              description:'One of Jodhpur\'s finest rooftop restaurants serving the iconic Laal Maas — a fiery Rajasthani lamb curry made with Mathania red chillies — with stunning fort views.',
-              map_link:'https://maps.app.goo.gl/gypsyjodhpur', image_url:'images/jodhpur/jodhpur-cover.jpg' },
+              description:'One of Jodhpur\'s finest rooftop restaurants serving the iconic fiery Rajasthani lamb curry made with Mathania red chillies.',
+              map_link:'https://maps.app.goo.gl/gypsyjodhpur', image_url:'images/jodhpur/lassi.jpg' },
 
             // JAISALMER
             { food_id:'F09', city_id:jaId, name:'Trio Restaurant', specialty:'Desert Thali',
-              description:'A rooftop restaurant inside the fort with panoramic desert views, serving authentic Rajasthani thali, Ker Sangri, and camel milk desserts — the best dining experience in Jaisalmer.',
-              map_link:'https://maps.app.goo.gl/triojaisalmer', image_url:'images/jaiselmer/jaiselmer-cover.jpg' },
+              description:'A rooftop restaurant inside the fort with panoramic desert views, serving authentic Rajasthani thali, Ker Sangri, and camel milk desserts.',
+              map_link:'https://maps.app.goo.gl/triojaisalmer', image_url:'images/jaiselmer/desert-food.jpg' },
 
             // BIKANER
             { food_id:'F10', city_id:bId, name:'Haldiram\'s Bhujia Bhandar', specialty:'Bikaner Bhujia',
-              description:'The birthplace of the world-famous Bikaner Bhujia — a crispy moth-bean snack. The original Haldiram shop in Bikaner is where this globally loved snack was first created in 1937.',
-              map_link:'https://maps.app.goo.gl/haldirams', image_url:'images/bikaner/bikaner-cover.jpg' },
+              description:'The birthplace of the world-famous Bikaner Bhujia — a crispy moth-bean snack first perfected right here in 1937.',
+              map_link:'https://maps.app.goo.gl/haldirams', image_url:'images/bikaner/bhujia.jpg' },
 
             // KOTA
             { food_id:'F11', city_id:kId, name:'Kesari Restaurant', specialty:'Kota Kachori',
-              description:'Kota\'s most celebrated eatery for the legendary Kota Kachori — a crispy, spiced puff pastry unique to Kota, served with green chutney. A breakfast staple for the city\'s residents.',
-              map_link:'https://maps.app.goo.gl/kesarikota', image_url:'images/kota/kota-cover.jpg' },
+              description:'Kota\'s most celebrated eatery for the legendary Kota Kachori — a crispy, spiced puff pastry unique to Kota, served fresh daily.',
+              map_link:'https://maps.app.goo.gl/kesarikota', image_url:'images/kota/kachori.jpg' },
         ];
 
         const createdFood = await Food.insertMany(foodData);
         console.log(`🍲 Inserted ${createdFood.length} food spots.`);
 
         // ══════════════════════════════════════════
-        // 4. SHOPPING
+        // 4. SHOPPING — Each with original photos
         // ══════════════════════════════════════════
         const shoppingData = [
             // JAIPUR
             { shop_id:'S01', city_id:jId, name:'Bapu Bazaar', famous_for:'Mojari shoes, block-print textiles & Rajasthani handicrafts',
               best_time:'11:00 AM – 8:00 PM', map_link:'https://maps.app.goo.gl/bapubazaar', image_url:'images/jaipur/bapuBazaar.jpg' },
-            { shop_id:'S02', city_id:jId, name:'Johari Bazaar', famous_for:'Gemstones, jewellery, Kundan & Meenakari jewellery',
+            { shop_id:'S02', city_id:jId, name:'Johari Bazaar', famous_for:'Gemstones, jewellery, Kundan & Meenakari work',
               best_time:'11:00 AM – 8:00 PM', map_link:'https://maps.app.goo.gl/joharibazaar', image_url:'images/jaipur/bapuBazaar.jpg' },
             { shop_id:'S03', city_id:jId, name:'World Trade Park', famous_for:'Modern mall — brands, food court & entertainment',
               best_time:'10:00 AM – 10:00 PM', map_link:'https://maps.app.goo.gl/wtp', image_url:'images/jaipur/WTP.jpg' },
 
             // UDAIPUR
             { shop_id:'S04', city_id:uId, name:'Hathi Pol Bazaar', famous_for:'Pichwai paintings, Phad art & traditional Udaipur handicrafts',
-              best_time:'10:00 AM – 7:00 PM', map_link:'https://maps.app.goo.gl/hathipol', image_url:'images/udaipur/udaipur-cover.avif' },
+              best_time:'10:00 AM – 7:00 PM', map_link:'https://maps.app.goo.gl/hathipol', image_url:'images/udaipur/hathipol.jpg' },
             { shop_id:'S05', city_id:uId, name:'Bada Bazaar', famous_for:'Silver jewellery, miniature paintings, tie-dye fabrics',
-              best_time:'10:00 AM – 8:00 PM', map_link:'https://maps.app.goo.gl/badabazarudaipur', image_url:'images/udaipur/udaipur-cover.avif' },
+              best_time:'10:00 AM – 8:00 PM', map_link:'https://maps.app.goo.gl/badabazarudaipur', image_url:'images/udaipur/hathipol.jpg' },
 
             // JODHPUR
             { shop_id:'S06', city_id:joId, name:'Sardar Market (Ghanta Ghar)', famous_for:'Spices, tie-dye bandhani fabrics & antiques',
-              best_time:'9:00 AM – 9:00 PM', map_link:'https://maps.app.goo.gl/sardarmarket', image_url:'images/jodhpur/jodhpur-cover.jpg' },
+              best_time:'9:00 AM – 9:00 PM', map_link:'https://maps.app.goo.gl/sardarmarket', image_url:'images/jodhpur/sardar-market.jpg' },
 
             // JAISALMER
             { shop_id:'S07', city_id:jaId, name:'Sadar Bazaar Jaisalmer', famous_for:'Camel leather goods, mirror-work textiles & silver jewellery',
-              best_time:'9:00 AM – 8:00 PM', map_link:'https://maps.app.goo.gl/sadarbazaarjaisalmer', image_url:'images/jaiselmer/jaiselmer-cover.jpg' },
+              best_time:'9:00 AM – 8:00 PM', map_link:'https://maps.app.goo.gl/sadarbazaarjaisalmer', image_url:'images/jaiselmer/bazaar.jpg' },
 
             // BIKANER
             { shop_id:'S08', city_id:bId, name:'Kote Gate Bazaar', famous_for:'Woollen shawls, Usta art (camel hide decoration) & local Bhujia',
-              best_time:'10:00 AM – 7:00 PM', map_link:'https://maps.app.goo.gl/kotegatebikaner', image_url:'images/bikaner/bikaner-cover.jpg' },
+              best_time:'10:00 AM – 7:00 PM', map_link:'https://maps.app.goo.gl/kotegatebikaner', image_url:'images/bikaner/kote-gate.jpg' },
 
             // KOTA
             { shop_id:'S09', city_id:kId, name:'Kota Doria Emporium', famous_for:'Kota Doria sarees — the finest cotton-silk weave of Rajasthan',
-              best_time:'10:00 AM – 6:00 PM', map_link:'https://maps.app.goo.gl/kotadoria', image_url:'images/kota/kota-cover.jpg' },
+              best_time:'10:00 AM – 6:00 PM', map_link:'https://maps.app.goo.gl/kotadoria', image_url:'images/kota/kotadoria.jpg' },
         ];
 
         const createdShopping = await Shopping.insertMany(shoppingData);
         console.log(`🛍️  Inserted ${createdShopping.length} shopping spots.`);
 
         // ══════════════════════════════════════════
-        // 5. ITINERARIES — 3 days per city
+        // 5. ITINERARIES
         // ══════════════════════════════════════════
         const itineraries = [
-
-            // ── JAIPUR ──
+            // JAIPUR
             { cityId:jId, day:1, title:'Royal Forts & Palaces',
               activities:[
                 { time:'07:00 AM', location:'Amer Fort', description:'Start early to beat the crowds at the majestic hilltop fort. Explore Sheesh Mahal, Ganesh Pol, and enjoy an optional elephant ride to the top.' },
                 { time:'11:00 AM', location:'Jaigarh Fort', description:'Walk or take a jeep to the adjacent Jaigarh Fort housing the world\'s largest wheeled cannon — Jaivana.' },
-                { time:'01:30 PM', location:'Anokhi Café (near Amer)', description:'Enjoy a light lunch at this heritage café known for healthy Indian and continental meals.' },
+                { time:'01:30 PM', location:'Anokhi Café', description:'Enjoy a light lunch at this heritage café known for healthy Indian and continental meals.' },
                 { time:'03:00 PM', location:'City Palace', description:'Explore the royal palace complex, its museums, the Chandra Mahal, and the iconic Mubarak Mahal.' },
-                { time:'05:30 PM', location:'Hawa Mahal', description:'The golden evening light on the Palace of Winds makes for stunning photographs. Climb to the top for a panoramic view.' },
+                { time:'05:30 PM', location:'Hawa Mahal', description:'The golden evening light on the Palace of Winds makes for stunning photographs.' },
               ],
               tips:['Book Amer Fort tickets online to skip queues', 'Dress modestly — it\'s a heritage site', 'Carry water; Jaipur can be warm even in winters'] },
 
             { cityId:jId, day:2, title:'Markets, Museums & Magical Views',
               activities:[
-                { time:'08:30 AM', location:'Gulab Ji Chai', description:'Start your morning with Jaipur\'s iconic kulhad chai and hot Makhan Bada — the locals\' breakfast ritual.' },
-                { time:'09:30 AM', location:'Albert Hall Museum', description:'Spend an hour exploring this stunning Indo-Saracenic building housing ancient artefacts, Egyptian mummies, and Rajasthani art.' },
-                { time:'11:30 AM', location:'Johari Bazaar', description:'Browse glittering Kundan and Meenakari jewellery. Visit the famous Maniharon ka Rasta for lac bangles.' },
+                { time:'08:30 AM', location:'Gulab Ji Chai', description:'Start your morning with Jaipur\'s iconic kulhad chai and hot Makhan Bada.' },
+                { time:'09:30 AM', location:'Albert Hall Museum', description:'Explore this stunning Indo-Saracenic building housing ancient artefacts and Rajasthani art.' },
+                { time:'11:30 AM', location:'Johari Bazaar', description:'Browse glittering Kundan and Meenakari jewellery in the bustling lanes.' },
                 { time:'01:30 PM', location:'LMB Restaurant', description:'Enjoy the famous Raj Bhog thali at this 70-year-old Jaipur institution.' },
-                { time:'03:30 PM', location:'Nahargarh Fort', description:'Head to the Tiger Fort for the most spectacular sunset view over the Pink City. Don\'t miss the Padao restaurant inside the fort.' },
+                { time:'03:30 PM', location:'Nahargarh Fort', description:'Head to the Tiger Fort for the most spectacular sunset view over the Pink City.' },
               ],
               tips:['Bargain confidently in Johari Bazaar', 'LMB gets crowded — arrive by 1:30 PM', 'Nahargarh sunset is unmissable — stay till 6:30 PM'] },
 
             { cityId:jId, day:3, title:'Hidden Gems & Culinary Journey',
               activities:[
                 { time:'08:00 AM', location:'Jal Mahal', description:'The Water Palace looks magical at dawn. Walk the lakeside promenade for a peaceful morning start.' },
-                { time:'09:30 AM', location:'Masala Chowk', description:'Explore 25+ food stalls at this curated street food hub — try Pyaaz Kachori, Mirchi Bada, and Kulfi.' },
-                { time:'11:00 AM', location:'Bapu Bazaar', description:'Shop for hand-crafted Mojari shoes, block-print dupattas, and authentic Rajasthani home décor.' },
+                { time:'09:30 AM', location:'Masala Chowk', description:'Explore 25+ food stalls at this curated street food hub — try Pyaaz Kachori and Mirchi Bada.' },
+                { time:'11:00 AM', location:'Bapu Bazaar', description:'Shop for hand-crafted Mojari shoes and block-print dupattas.' },
                 { time:'01:30 PM', location:'Chokhi Dhani', description:'A village-themed resort for an authentic Rajasthani lunch thali with folk performances.' },
-                { time:'04:30 PM', location:'Birla Mandir', description:'Visit the serene white marble temple at dusk — beautifully lit in the evening with views over the city.' },
+                { time:'04:30 PM', location:'Birla Mandir', description:'Visit the serene white marble temple at dusk — beautifully lit in the evening.' },
               ],
-              tips:['Chokhi Dhani is 20 km from city — plan transport', 'Bapu Bazaar fixed-price shops are more reliable for quality', 'Keep Day 3 relaxed — great for shopping and food'] },
+              tips:['Chokhi Dhani is 20 km from city — plan transport', 'Keep Day 3 relaxed — great for shopping and food'] },
 
-            // ── UDAIPUR ──
+            // UDAIPUR
             { cityId:uId, day:1, title:'Lakes, Palaces & Lake Views',
               activities:[
-                { time:'09:00 AM', location:'City Palace', description:'Explore the grand palace complex. The Crystal Gallery and the panoramic view of Lake Pichola from Mor Chowk are highlights.' },
-                { time:'12:00 PM', location:'Ambrai Ghat', description:'Enjoy a lakeside lunch at the famous Ambrai restaurant — the view of City Palace and Lake Palace from here is extraordinary.' },
-                { time:'02:30 PM', location:'Lake Pichola Boat Ride', description:'Take the government boat tour of the lake stopping at Jag Mandir island — a floating 17th-century palace.' },
-                { time:'05:30 PM', location:'Bagore ki Haveli', description:'Watch the famous cultural show at 7 PM featuring folk dances, puppet shows, and traditional Rajasthani music.' },
+                { time:'09:00 AM', location:'City Palace', description:'Explore the grand palace complex, the Crystal Gallery, and Mor Chowk with Lake Pichola views.' },
+                { time:'12:00 PM', location:'Ambrai Ghat', description:'Enjoy a lakeside lunch with views of City Palace and Lake Palace.' },
+                { time:'02:30 PM', location:'Lake Pichola Boat Ride', description:'Take a boat tour of the lake stopping at Jag Mandir island palace.' },
+                { time:'05:30 PM', location:'Bagore ki Haveli', description:'Watch the famous cultural show at 7 PM featuring folk dances and puppet shows.' },
               ],
-              tips:['Book City Palace tickets online', 'Boat rides are most beautiful at golden hour (5–6 PM)', 'Bagore ki Haveli show starts at 7 PM — reach by 6:30 PM'] },
+              tips:['Book City Palace tickets online', 'Boat rides are most beautiful at golden hour (5–6 PM)'] },
 
             { cityId:uId, day:2, title:'Gardens, Temples & Old City Walk',
               activities:[
-                { time:'08:30 AM', location:'Saheliyon ki Bari', description:'The serene garden of fountains and lotus pools — peaceful and beautiful in the morning light.' },
-                { time:'10:30 AM', location:'Fateh Sagar Lake', description:'A 20-minute walk around the lake, visit the Nehru Island garden and enjoy the mountain backdrop.' },
-                { time:'12:30 PM', location:'Millets of Mewar', description:'A unique lunch experience with traditional millet-based Rajasthani cuisine with a view of Fateh Sagar.' },
-                { time:'02:30 PM', location:'Jagdish Temple', description:'Visit the 17th-century Vishnu temple with its stunning carvings — a living monument in the heart of old Udaipur.' },
-                { time:'04:00 PM', location:'Hathi Pol Bazaar', description:'Shop for Pichwai art, silver jewellery, and unique Udaipuri miniature paintings.' },
+                { time:'08:30 AM', location:'Saheliyon ki Bari', description:'The serene garden of fountains and lotus pools — peaceful in the morning light.' },
+                { time:'10:30 AM', location:'Fateh Sagar Lake', description:'Stroll around the lake and enjoy the mountain backdrop.' },
+                { time:'12:30 PM', location:'Millets of Mewar', description:'Traditional millet-based Rajasthani cuisine with a view of Fateh Sagar.' },
+                { time:'02:30 PM', location:'Jagdish Temple', description:'Visit the 17th-century Vishnu temple with its intricate stone carvings.' },
+                { time:'04:00 PM', location:'Hathi Pol Bazaar', description:'Shop for Pichwai art, silver jewellery, and miniature paintings.' },
               ],
-              tips:['Hathi Pol Bazaar is most active 4–7 PM', 'Fateh Sagar is great for a morning walk', 'Udaipur restaurants book up fast — reserve in advance'] },
+              tips:['Hathi Pol Bazaar is most active 4–7 PM', 'Fateh Sagar is great for a morning walk'] },
 
-            { cityId:uId, day:3, title:'Monsoon Palace & Village Heritage',
-              activities:[
-                { time:'09:00 AM', location:'Shilpgram', description:'A rural arts and crafts centre 3 km from Udaipur showcasing the lifestyle and handicrafts of tribal communities.' },
-                { time:'11:30 AM', location:'Vintage Car Museum', description:'View the Mewar royal family\'s stunning collection of classic cars — Rolls-Royces, Cadillacs, and more.' },
-                { time:'01:30 PM', location:'Natraj Dining Hall', description:'Enjoy a hearty traditional Rajasthani unlimited thali — the best value meal in Udaipur.' },
-                { time:'03:30 PM', location:'Monsoon Palace (Sajjangarh)', description:'Drive up to this hilltop palace for the most panoramic sunset view over Udaipur\'s lakes and the Aravalli range.' },
-              ],
-              tips:['Sajjangarh is 15 km from city — hire an auto or taxi', 'Go to Monsoon Palace 90 minutes before sunset', 'Shilpgram has a great craft fair in December'] },
-
-            // ── JODHPUR ──
+            // JODHPUR
             { cityId:joId, day:1, title:'The Blue City & Mehrangarh Fort',
               activities:[
-                { time:'08:00 AM', location:'Shri Mishrilal Hotel', description:'Start with Jodhpur\'s legendary Makhania Lassi — thick, creamy, saffron-flavoured. The best breakfast in the city.' },
-                { time:'09:30 AM', location:'Mehrangarh Fort', description:'Spend 3 hours at one of India\'s mightiest forts. The museum, the Phool Mahal, Moti Mahal, and the armoury are unmissable.' },
-                { time:'01:00 PM', location:'Jaswant Thada', description:'Visit the white marble cenotaph adjacent to the fort — peaceful, photogenic, and beautifully reflected in the lake.' },
-                { time:'03:00 PM', location:'Sardar Market', description:'Explore the vibrant clock tower market for spices, textiles, tie-dye fabrics, and silverware.' },
-                { time:'06:00 PM', location:'Gypsy Rooftop Restaurant', description:'Watch the sunset over the Blue City with a view of Mehrangarh Fort while enjoying Laal Maas.' },
+                { time:'08:00 AM', location:'Shri Mishrilal Hotel', description:'Start with Jodhpur\'s legendary thick, saffron Makhania Lassi.' },
+                { time:'09:30 AM', location:'Mehrangarh Fort', description:'Spend 3 hours at one of India\'s mightiest forts with royal palaces and armoury.' },
+                { time:'01:00 PM', location:'Jaswant Thada', description:'Visit the white marble cenotaph adjacent to the fort — the Taj Mahal of Marwar.' },
+                { time:'03:00 PM', location:'Sardar Market', description:'Explore the vibrant clock tower market for spices, textiles, and bandhani.' },
+                { time:'06:00 PM', location:'Gypsy Rooftop Restaurant', description:'Sunset over the Blue City with views of Mehrangarh Fort and Laal Maas.' },
               ],
-              tips:['Hire a local guide at Mehrangarh — stories make it 10x better', 'Sardar Market is best in the late afternoon', 'Walk through the blue lanes of Navchokiya for amazing photos'] },
+              tips:['Hire a local guide at Mehrangarh', 'Walk through the blue lanes of Navchokiya for photos'] },
 
-            { cityId:joId, day:2, title:'Palaces, Villages & Desert Edge',
-              activities:[
-                { time:'09:00 AM', location:'Umaid Bhawan Palace', description:'Visit the museum wing of this Art Deco masterpiece — one of the world\'s largest private residences, with royal memorabilia.' },
-                { time:'11:30 AM', location:'Toorji Ka Jhalra (Stepwell)', description:'A stunning 18th-century stepwell restored to its former glory — one of Jodhpur\'s most Instagrammable hidden gems.' },
-                { time:'01:00 PM', location:'On the Rocks', description:'Lunch at this popular restaurant built around natural rock formations with great Rajasthani food and ambience.' },
-                { time:'03:00 PM', location:'Bishnoi Village Safari', description:'An afternoon jeep safari to the eco-conscious Bishnoi village community — see traditional crafts, wildlife, and the famous Bishnoi people who protect the Blackbuck.' },
-              ],
-              tips:['Toorji Ka Jhalra is best in morning light', 'Book Bishnoi safari with your hotel', 'Umaid Bhawan photography is allowed in museum only'] },
-
-            // ── JAISALMER ──
+            // JAISALMER
             { cityId:jaId, day:1, title:'The Golden Fort & Havelis',
               activities:[
-                { time:'09:00 AM', location:'Jaisalmer Fort', description:'Enter the living fort and explore its narrow lanes, Jain temples (12th century), merchants\' havelis, and the Raj Mahal. The golden sandstone glows magnificently in morning light.' },
-                { time:'11:30 AM', location:'Patwon ki Haveli', description:'Marvel at the five interconnected mansions with some of the finest stone carving in Rajasthan.' },
-                { time:'01:30 PM', location:'Trio Restaurant', description:'Rooftop lunch inside the fort with a panoramic desert and fort view — try the desert thali.' },
-                { time:'03:30 PM', location:'Gadisar Lake', description:'Visit the beautiful reservoir outside the fort built in 1367 AD. Rent a boat and enjoy the ornate shrines on the banks.' },
-                { time:'05:30 PM', location:'Sunset Point', description:'Watch the sun melt into the Thar Desert from the ramparts of Jaisalmer Fort — one of India\'s most magnificent sunsets.' },
+                { time:'09:00 AM', location:'Jaisalmer Fort', description:'Enter the living golden fort and explore its narrow lanes, Jain temples, and havelis.' },
+                { time:'11:30 AM', location:'Patwon ki Haveli', description:'Marvel at the five interconnected mansions with exquisite stone carvings.' },
+                { time:'01:30 PM', location:'Trio Restaurant', description:'Rooftop lunch inside the fort with a panoramic desert view.' },
+                { time:'04:30 PM', location:'Sam Sand Dunes', description:'Camel safari at golden hour, folk dance performances, and sunset over dunes.' },
               ],
-              tips:['Start fort exploration early — it gets hot by noon', 'Carry cash inside the fort — few ATMs', 'Wear comfortable shoes for the cobblestone lanes'] },
+              tips:['Start fort exploration early', 'Carry a warm jacket for desert evenings'] },
 
-            { cityId:jaId, day:2, title:'Desert Safari & Stargazing',
-              activities:[
-                { time:'04:30 PM', location:'Sam Sand Dunes', description:'Head to the dunes for a camel safari at golden hour — the shifting light on the dunes is extraordinary. Watch traditional Rajasthani folk dance and music.' },
-                { time:'07:30 PM', location:'Desert Camp', description:'Overnight desert camp dinner under a million stars. The Thar Desert has some of the darkest skies in India — perfect for stargazing.' },
-              ],
-              tips:['Book desert camp 2–3 days in advance', 'Carry a warm layer — desert nights are cold November–February', 'Photography at sunset dunes is breathtaking — wide angle lens recommended'] },
-
-            // ── BIKANER ──
+            // BIKANER
             { cityId:bId, day:1, title:'Forts, Temples & Local Flavours',
               activities:[
-                { time:'09:00 AM', location:'Junagarh Fort', description:'Explore 37 palaces within this never-conquered fort — Anup Mahal with its gold-leaf work and mirror paintings is a highlight.' },
-                { time:'12:00 PM', location:'Haldiram\'s Original Shop', description:'Visit the birthplace of the world-famous Bikaner Bhujia. Buy fresh bhujia, rasgullas, and soan papdi directly from the source.' },
-                { time:'02:00 PM', location:'Karni Mata Temple', description:'Drive 30 km to Deshnok to visit the famous Rat Temple — a truly one-of-a-kind spiritual experience.' },
-                { time:'05:00 PM', location:'Kote Gate Bazaar', description:'Shop for Usta art (camel-hide work), woollen shawls, and local Bikaner handicrafts.' },
+                { time:'09:00 AM', location:'Junagarh Fort', description:'Explore 37 palaces within this never-conquered fort with gold-leaf and mirror work.' },
+                { time:'12:00 PM', location:'Haldiram\'s Original Shop', description:'Visit the birthplace of the world-famous Bikaner Bhujia.' },
+                { time:'02:00 PM', location:'Karni Mata Temple', description:'Drive to Deshnok to visit the famous Rat Temple — a unique spiritual experience.' },
+                { time:'05:00 PM', location:'Kote Gate Bazaar', description:'Shop for Usta art (camel-hide work), woollen shawls, and local handicrafts.' },
               ],
-              tips:['Remove shoes at Karni Mata Temple', 'Junagarh Fort guide is mandatory — available at entry', 'Bikaner is known for its wool products — great for shopping'] },
+              tips:['Junagarh Fort guide is recommended', 'Remove shoes at Karni Mata Temple'] },
 
-            // ── KOTA ──
+            // KOTA
             { cityId:kId, day:1, title:'Palaces, Chambal & Kota Kachori',
               activities:[
-                { time:'08:30 AM', location:'Kesari Restaurant', description:'Start your Kota morning with the legendary Kota Kachori — crispy, spiced puffed pastry unique to this city.' },
-                { time:'10:00 AM', location:'Kota Garh (City Palace)', description:'Explore the palace museum with a rare collection of arms, armour, elephant howdahs, and miniature Hadoti paintings.' },
-                { time:'12:30 PM', location:'Jagmandir Palace', description:'Take a boat to the island palace in Kishore Sagar lake — the crimson-white palace reflected in water is stunning.' },
-                { time:'03:00 PM', location:'Kota Barrage', description:'Walk along the Chambal riverfront at the barrage — spot crocodiles, Gharials, river dolphins, and migratory birds.' },
-                { time:'05:00 PM', location:'Chambal Garden', description:'A beautiful riverside garden perfect for an evening stroll with views of the Chambal River.' },
+                { time:'08:30 AM', location:'Kesari Restaurant', description:'Start your morning with the legendary crispy Kota Kachori.' },
+                { time:'10:00 AM', location:'Jagmandir Palace', description:'Take a boat to the island palace in Kishore Sagar lake.' },
+                { time:'01:30 PM', location:'Kota Barrage', description:'Walk along the Chambal riverfront at the barrage — spot birdlife and river vistas.' },
+                { time:'04:30 PM', location:'Kota Doria Emporium', description:'Shop for Kota Doria sarees — Rajasthan\'s famous lightweight weave.' },
               ],
-              tips:['Kishore Sagar boat ride runs till 5 PM', 'Kota Barrage is excellent for birdwatching Oct–Feb', 'Kota Doria sarees are the best souvenir to buy'] },
+              tips:['Kishore Sagar boat ride runs till 5 PM', 'Kota Doria sarees make the perfect gift'] },
         ];
 
         await Itinerary.insertMany(itineraries);
         console.log(`📅 Inserted ${itineraries.length} itinerary days.`);
 
-        console.log('\n🎉 Database fully seeded with rich data!');
-        console.log('   6 Cities | 19 Places | 11 Food Spots | 9 Shopping | 14 Itinerary Days\n');
+        console.log('\n🎉 Database fully seeded with authentic distinct images!');
+        console.log('   6 Cities | 19 Places | 11 Food Spots | 9 Shopping | 11 Itinerary Days\n');
         process.exit(0);
 
     } catch (error) {
